@@ -1,0 +1,4 @@
+Fri Feb 28 21:49:14 2020
+ C:\Users\18280\xlearn\src/base/file_util.h:130 (FileExist) File: small_train.txt.bin doesn't exists.
+Fri Feb 28 21:49:14 2020
+ C:\Users\18280\xlearn\src/base/file_util.h:130 (FileExist) File: small_test.txt.bin doesn't exists.
