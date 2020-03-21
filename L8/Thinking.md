@@ -22,7 +22,12 @@ FM和DNN有两个维度的组合
 
 # 4.surprise工具中的baseline算法原理是怎样的？BaselineOnly和KNNbaseline区别
 
-bui = u+bu+bi 
+$b_ui$ = μ + $b_u$ + $b_i$
+其中$b_u$表示用户的平均打分偏差;$b_i$表示item的平均打分偏差.
+
+尽管两者在思想上都考虑了用户的打分偏差和item偏差，但是
+KNNbaseline本质上是一种基于领域的协同过滤算法,是基于最近邻的邻居的打分行为进行计算推荐
+而BaselinOnly是基于全体数据集的行为进行计算推荐
 
 # 5. GBDT和随机森林都是树模型，区别
 
@@ -33,6 +38,19 @@ Random Forest是Bagging方法的到最后结果,树与树之间是并行的并�
 
 UserCF 基于用户的协同过滤
 ItemCF 基于物品的协同过滤算法
+
+具体的,邻居的确定方法有两种:KNN(K-Nearest Neighbor,距离为K的区域中所有点)&K-neighborhoods(不论距离,固定K个邻居)
+具体的,相似度的计算方法有:
+* Jaccard相似度计算:交集比并集
+* 余弦相似度：交集比乘积
+* 改进的相似度:基于流行度改进了算法 通过加入log惩罚热门相似度影响
+
+具体的，根据KNN的不同优化：
+* KNNBasic:基本协同过滤算法
+* KNNBasicWithMeans:基本协同过滤算法中考虑了用户的平均兴趣
+* KNNBasicWithZScore:基本协同过滤算法中考虑了用户平均兴趣及标准差
+* KNNBaseline:考虑到用户的打分偏差,偏差计算时使用baseline,用baseline代替均值
+
 
 
 
